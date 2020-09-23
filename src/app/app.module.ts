@@ -8,6 +8,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import {SharedModule} from './shared/shared.module';
+import {AngularFireModule} from '@angular/fire';
+import {environment, environmentTest} from '../environments/environment';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {SharedModule} from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    AngularFireModule.initializeApp(environmentTest.firebaseConfig, 'my-app-name'),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
